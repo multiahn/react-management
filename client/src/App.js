@@ -33,11 +33,9 @@ class App extends Component {
   componentDidMount() {
     this.timer = setInterval(this.progress, 10);
 
-    /*
     this.callApi()
     .then(res => this.setState({customers: res}))
     .catch(err => console.log(err));
-    */
   }
 
   callApi = async() => {
