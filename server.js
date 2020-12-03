@@ -21,7 +21,7 @@ const connection = mysql.createConnection({
 connection.connect();
 
 const multer = require('multer');
-const upload = require({dest: './upload'});
+const upload = multer({dest: './upload'});
 
 app.get('/api/customers', (req,res) => {
     connection.query(
@@ -32,7 +32,7 @@ app.get('/api/customers', (req,res) => {
     );
 })
 
-app.use('/image', exporess.static('./upload'));
+app.use('/image', express.static('./upload'));
 app.post('/api/customers', upload.single('image'), (req, res) => {
     let sql = "insert into tb_customer values (null, ?, ?, ?, ?, ?) ";
     let image = "/image/" + req.file.filename;
